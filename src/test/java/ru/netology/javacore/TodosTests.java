@@ -1,8 +1,6 @@
 package ru.netology.javacore;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,6 +17,12 @@ public class TodosTests {
         sut.addTask("Магазин");
         sut.addTask("Прогулка");
     }
+
+    @AfterEach
+    public void clearData() {
+        sut.clearTasksList();
+    }
+
 
     @Test
     void addTaskTest() {

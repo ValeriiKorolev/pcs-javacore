@@ -28,6 +28,10 @@ public class Todos {
         tasksList.remove(task);
     }
 
+    public void clearTasksList() {
+        tasksList.clear();
+    }
+
     public String getAllTasks() {
         Optional<String> reduced = tasksList.stream()
                 .sorted(Comparator.reverseOrder())
