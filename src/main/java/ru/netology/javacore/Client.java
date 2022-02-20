@@ -40,8 +40,6 @@ public class Client {
             }
             out.println("0");
 
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
