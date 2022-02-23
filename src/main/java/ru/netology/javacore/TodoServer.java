@@ -33,25 +33,23 @@ public class TodoServer {
                 Gson gson = builder.create();
                 String taskLine;
 
-                while (true) {
-                    taskLine = in.readLine();
-                    if (taskLine.equals("0")) break;
+                taskLine = in.readLine();
+                if (taskLine.equals("0")) break;
 
-                    todos = gson.fromJson(taskLine, Todos.class);
-                    String type = todos.getAction();
-                    String task = todos.getTask();
+                todos = gson.fromJson(taskLine, Todos.class);
+                String type = todos.getAction();
+                String task = todos.getTask();
 
-                    switch (type) {
-                        case "ADD":
-                            todos.addTask(task);
-                            break;
-                        case "REMOVE":
-                            todos.removeTask(task);
-                            break;
-                    }
-                    String tasks = todos.getAllTasks();
-                    out.println("Ваши задачи: " + tasks);
+                switch (type) {
+                    case "ADD":
+                        todos.addTask(task);
+                        break;
+                    case "REMOVE":
+                        todos.removeTask(task);
+                        break;
                 }
+                String tasks = todos.getAllTasks();
+                out.println("Ваши задачи: " + tasks);
 
             } catch (IOException e) {
                 e.printStackTrace();
